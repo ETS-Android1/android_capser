@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animated-selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/checked"
+        android:drawable="@drawable/toggle_checked"
+        android:state_enabled="true"
+        android:state_checked="true" />
+    <item
+        android:id="@+id/unchecked"
+        android:state_checked="false"
+        android:state_enabled="true"
+        android:drawable="@drawable/toggle_unchecked" />
+
+    <item
+        android:state_enabled="false"
+        android:state_checked="false"
+        android:id="@+id/invalid"
+        android:drawable="@drawable/toggle_invalid" />
+
+
+    <transition
+        android:drawable="@drawable/toggle_unchecked_checked"
+        android:fromId="@id/unchecked"
+        android:toId="@id/checked" />
+
+    <transition
+        android:drawable="@drawable/toggle_checked_unchecked"
+        android:fromId="@+id/checked"
+        android:toId="@+id/unchecked" />
+
+    <transition
+        android:drawable="@drawable/toggle_unchecked_invalid"
+        android:fromId="@+id/unchecked"
+        android:toId="@+id/invalid" />
+
+<!--    <transition-->
+<!--        android:drawable="@drawable/toggle_invalid_checked"-->
+<!--        android:fromId="@+id/invalid"-->
+<!--        android:toId="@+id/checked" />-->
+</animated-selector>

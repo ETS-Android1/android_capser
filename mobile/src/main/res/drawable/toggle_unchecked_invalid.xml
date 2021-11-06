@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animated-vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:drawable="@drawable/toggle_invalid">
+
+
+    <target android:name="ex1">
+        <aapt:attr name="android:animation">
+            <objectAnimator
+                android:duration="@android:integer/config_shortAnimTime"
+                android:interpolator="@android:interpolator/accelerate_cubic"
+                android:propertyName="trimPathEnd"
+                android:valueFrom="0"
+                android:valueTo="1"
+                android:valueType="floatType" />
+        </aapt:attr>
+    </target>
+
+
+    <target android:name="ex2">
+        <aapt:attr name="android:animation">
+            <objectAnimator
+                android:startOffset="200"
+                android:duration="@android:integer/config_shortAnimTime"
+                android:interpolator="@android:interpolator/accelerate_cubic"
+                android:propertyName="trimPathEnd"
+                android:valueFrom="0"
+                android:valueTo="1"
+                android:valueType="floatType" />
+        </aapt:attr>
+    </target>
+
+
+    <target android:name="mask1">
+        <aapt:attr name="android:animation">
+            <objectAnimator
+                android:duration="@android:integer/config_shortAnimTime"
+                android:interpolator="@android:interpolator/accelerate_cubic"
+                android:propertyName="trimPathEnd"
+                android:valueFrom="0"
+                android:valueTo="1"
+                android:valueType="floatType" />
+        </aapt:attr>
+    </target>
+
+    <target android:name="mask2">
+        <aapt:attr name="android:animation">
+            <objectAnimator
+                android:duration="@android:integer/config_shortAnimTime"
+                android:interpolator="@android:interpolator/accelerate_cubic"
+                android:propertyName="trimPathEnd"
+                android:valueFrom="0"
+                android:valueTo="1"
+                android:valueType="floatType" />
+        </aapt:attr>
+    </target>
+
+    <target android:name="mask3">
+        <aapt:attr name="android:animation">
+            <objectAnimator
+                android:startOffset="200"
+                android:duration="@android:integer/config_shortAnimTime"
+                android:interpolator="@android:interpolator/accelerate_cubic"
+                android:propertyName="trimPathEnd"
+                android:valueFrom="0"
+                android:valueTo="1"
+                android:valueType="floatType" />
+        </aapt:attr>
+    </target>
+
+
+
+
+    <target android:name="circle">
+        <aapt:attr name="android:animation">
+            <objectAnimator
+                android:duration="@android:integer/config_shortAnimTime"
+                android:interpolator="@android:interpolator/accelerate_decelerate"
+                android:propertyName="strokeColor"
+                android:valueFrom="#A0A0A0"
+                android:valueTo="#F30622"
+                android:valueType="intType" />
+        </aapt:attr>
+    </target>
+
+
+</animated-vector>

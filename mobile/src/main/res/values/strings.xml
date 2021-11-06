@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Global Caps League</string>
+<!--    <string name="server_url">http://10.0.2.2:8079</string>-->
+    <string name="server_url">https://globalcapsleague.com</string>
+    <string name="access_token">accessToken</string>
+    <string name="refresh_token">refreshToken</string>
+</resources>

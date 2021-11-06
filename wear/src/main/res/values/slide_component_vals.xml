@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="TestComponent">
+        <attr name="right_mirror" format="boolean" />
+        <attr name="color" format="color"/>
+    </declare-styleable>
+</resources>
