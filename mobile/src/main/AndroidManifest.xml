@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GlobalCapsLeagueApp">
         <activity
-            android:name=".MainActivity"
+            android:name="com.globalcapsleague.app.activity.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,19 +23,26 @@
         </activity>
 
         <activity
-            android:name=".AddGameActivity"
+            android:name="com.globalcapsleague.app.activity.AddGameActivity"
             android:exported="true">
 
         </activity>
 
         <activity
-            android:name=".LoginActivity"
+            android:name="com.globalcapsleague.app.activity.LoginActivity"
             android:exported="true">
 
         </activity>
 
+        <activity
+            android:name="com.globalcapsleague.app.activity.LiveGameActivity"
+            android:exported="true">
+
+        </activity>
+
+
         <service
-            android:name=".listeners.ListenerService"
+            android:name="com.globalcapsleague.app.listeners.ListenerService"
             android:exported="true">
             <intent-filter>
                 <action android:name="com.google.android.gms.wearable.MESSAGE_RECEIVED" />

@@ -6,6 +6,8 @@
     <color name="teal_200">#DA0303</color>
     <color name="teal_700">#870101</color>
     <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
-    <color name="paper">#00131f</color>
+    <color name="white">#F1F1F1</color>
+    <color name="paper">#00131F</color>
+    <color name="lightPaper">#F1F1F1</color>
+    <color name="highlight">#373737</color>
 </resources>

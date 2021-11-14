@@ -4,4 +4,6 @@
     <string name="server_url">https://globalcapsleague.com</string>
     <string name="access_token">accessToken</string>
     <string name="refresh_token">refreshToken</string>
+    <string name="username">username</string>
+    <string name="email">email</string>
 </resources>

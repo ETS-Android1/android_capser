@@ -15,7 +15,7 @@
   <path
       android:name="mask"
       android:pathData="M11.254,16.348 L22.265,1"
-      android:strokeColor="@color/black"
+      android:strokeColor="?attr/backgroundColor"
       android:strokeLineCap="round"
       android:strokeLineJoin="round"
       android:strokeWidth="3" />

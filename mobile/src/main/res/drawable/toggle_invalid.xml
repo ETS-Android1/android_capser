@@ -15,7 +15,7 @@
     <path
         android:name="mask1"
         android:pathData="M2,2 L22,22"
-        android:strokeColor="@color/black"
+        android:strokeColor="?attr/backgroundColor"
         android:strokeLineCap="round"
         android:strokeLineJoin="round"
         android:strokeWidth="3" />
@@ -23,7 +23,7 @@
     <path
         android:name="mask2"
         android:pathData="M2,22 L22,2"
-        android:strokeColor="@color/black"
+        android:strokeColor="?attr/backgroundColor"
         android:strokeLineCap="round"
         android:strokeLineJoin="round"
         android:strokeWidth="3" />
@@ -41,7 +41,7 @@
     <path
         android:name="mask3"
         android:pathData="M2,2 L22,22"
-        android:strokeColor="@color/black"
+        android:strokeColor="?attr/backgroundColor"
         android:strokeLineCap="round"
         android:strokeLineJoin="round"
         android:strokeWidth="3" />

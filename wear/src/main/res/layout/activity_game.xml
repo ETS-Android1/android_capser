@@ -12,11 +12,11 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainerView"
-        android:name="com.example.globalcapsleagueapp.activity.game.MainFragment"
+        android:name="com.globalcapsleague.app.fragment.MainFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-    <com.example.globalcapsleagueapp.components.CurvedText
+    <com.globalcapsleague.app.components.CurvedText
         android:id="@+id/time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

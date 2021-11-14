@@ -23,7 +23,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <com.example.globalcapsleagueapp.components.SlideComponent
+                <com.globalcapsleague.app.components.SlideComponent
                     android:id="@+id/rebutted_yes"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -48,7 +48,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <com.example.globalcapsleagueapp.components.SlideComponent
+                <com.globalcapsleague.app.components.SlideComponent
                     android:id="@+id/rebutted_no"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

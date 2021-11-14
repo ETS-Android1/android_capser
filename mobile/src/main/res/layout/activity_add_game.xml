@@ -170,7 +170,7 @@
             android:layout_marginStart="10dp"
             android:button="@drawable/toggle"
             android:clickable="false"
-            android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar"
+            android:theme="@style/CustomAttributes"
             app:layout_constraintBaseline_toBaselineOf="@+id/opponent_select"
             app:layout_constraintStart_toEndOf="@+id/opponent_select" />
 

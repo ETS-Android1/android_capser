@@ -1,14 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
     <group android:checkableBehavior="single">
+
         <item
-            android:id="@+id/nav_first_fragment"
-            android:title="First" />
+            android:id="@+id/nav_home"
+            android:icon="@drawable/home"
+            android:title="Home" />
+
         <item
-            android:id="@+id/nav_second_fragment"
-            android:title="Second" />
+            android:id="@+id/nav_play_game"
+            android:icon="@drawable/add"
+            android:title="Play Game" />
+
         <item
-            android:id="@+id/nav_third_fragment"
-            android:title="Third" />
+            android:id="@+id/nav_homes"
+            android:icon="@drawable/easy_caps"
+            android:title="Easy Caps" />
+        <item
+            android:id="@+id/nav_gallery"
+            android:icon="@drawable/singles"
+            android:title="Singles" />
+        <item
+            android:id="@+id/nav_slideshow"
+            android:icon="@drawable/doubles"
+            android:title="Doubles" />
+
+        <item
+            android:id="@+id/nav_logout"
+            android:icon="@drawable/logout"
+            android:title="Logout" />
+
     </group>
+
+
 </menu>

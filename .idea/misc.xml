@@ -3,20 +3,35 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/micha/AndroidStudioProjects/GlobalCapsLeagueApp/mobile/src/main/res/drawable-v21/home.xml" value="0.21875" />
+        <entry key="..\:/Users/micha/AndroidStudioProjects/GlobalCapsLeagueApp/mobile/src/main/res/drawable-v21/round_bottom_corners_green.xml" value="0.20364583333333333" />
+        <entry key="..\:/Users/micha/AndroidStudioProjects/GlobalCapsLeagueApp/mobile/src/main/res/drawable-v21/round_top_corners_green.xml" value="0.37864583333333335" />
         <entry key="..\:/Users/micha/AndroidStudioProjects/GlobalCapsLeagueApp/mobile/src/main/res/drawable-v21/toggle.xml" value="0.3106837606837607" />
         <entry key="..\:/Users/micha/AndroidStudioProjects/GlobalCapsLeagueApp/mobile/src/main/res/drawable-v24/arrow.xml" value="0.1675213675213675" />
         <entry key="..\:/Users/micha/AndroidStudioProjects/GlobalCapsLeagueApp/mobile/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1675213675213675" />
         <entry key="..\:/Users/micha/AndroidStudioProjects/GlobalCapsLeagueApp/mobile/src/main/res/drawable/action_bar.xml" value="0.3106837606837607" />
+        <entry key="..\:/Users/micha/AndroidStudioProjects/GlobalCapsLeagueApp/mobile/src/main/res/drawable/action_bar_background.xml" value="0.21875" />
         <entry key="..\:/Users/micha/AndroidStudioProjects/GlobalCapsLeagueApp/mobile/src/main/res/drawable/button.xml" value="0.3106837606837607" />
         <entry key="..\:/Users/micha/AndroidStudioProjects/GlobalCapsLeagueApp/mobile/src/main/res/drawable/button_disabled.xml" value="0.3106837606837607" />
         <entry key="..\:/Users/micha/AndroidStudioProjects/GlobalCapsLeagueApp/mobile/src/main/res/drawable/button_enabled.xml" value="0.3106837606837607" />
         <entry key="..\:/Users/micha/AndroidStudioProjects/GlobalCapsLeagueApp/mobile/src/main/res/drawable/button_focused.xml" value="0.3106837606837607" />
         <entry key="..\:/Users/micha/AndroidStudioProjects/GlobalCapsLeagueApp/mobile/src/main/res/drawable/button_pressed.xml" value="0.3106837606837607" />
         <entry key="..\:/Users/micha/AndroidStudioProjects/GlobalCapsLeagueApp/mobile/src/main/res/drawable/dropdown_arrow.xml" value="0.3106837606837607" />
+        <entry key="..\:/Users/micha/AndroidStudioProjects/GlobalCapsLeagueApp/mobile/src/main/res/drawable/easy_caps.xml" value="0.21875" />
+        <entry key="..\:/Users/micha/AndroidStudioProjects/GlobalCapsLeagueApp/mobile/src/main/res/drawable/help_background.xml" value="0.37864583333333335" />
         <entry key="..\:/Users/micha/AndroidStudioProjects/GlobalCapsLeagueApp/mobile/src/main/res/drawable/ic_android_black_24dp.xml" value="0.1675213675213675" />
         <entry key="..\:/Users/micha/AndroidStudioProjects/GlobalCapsLeagueApp/mobile/src/main/res/drawable/ic_launcher_background.xml" value="0.1675213675213675" />
         <entry key="..\:/Users/micha/AndroidStudioProjects/GlobalCapsLeagueApp/mobile/src/main/res/drawable/input_background.xml" value="0.1675213675213675" />
         <entry key="..\:/Users/micha/AndroidStudioProjects/GlobalCapsLeagueApp/mobile/src/main/res/drawable/input_border.xml" value="0.18" />
+        <entry key="..\:/Users/micha/AndroidStudioProjects/GlobalCapsLeagueApp/mobile/src/main/res/drawable/menu_background_color_state.xml" value="0.21875" />
+        <entry key="..\:/Users/micha/AndroidStudioProjects/GlobalCapsLeagueApp/mobile/src/main/res/drawable/menu_item_background.xml" value="0.37864583333333335" />
+        <entry key="..\:/Users/micha/AndroidStudioProjects/GlobalCapsLeagueApp/mobile/src/main/res/drawable/menu_selected_text_color.xml" value="0.21875" />
+        <entry key="..\:/Users/micha/AndroidStudioProjects/GlobalCapsLeagueApp/mobile/src/main/res/drawable/paper_color.xml" value="0.37864583333333335" />
+        <entry key="..\:/Users/micha/AndroidStudioProjects/GlobalCapsLeagueApp/mobile/src/main/res/drawable/round_bottom_corners.xml" value="0.21875" />
+        <entry key="..\:/Users/micha/AndroidStudioProjects/GlobalCapsLeagueApp/mobile/src/main/res/drawable/round_top_background.xml" value="0.21875" />
+        <entry key="..\:/Users/micha/AndroidStudioProjects/GlobalCapsLeagueApp/mobile/src/main/res/drawable/round_top_corners.xml" value="0.20364583333333333" />
+        <entry key="..\:/Users/micha/AndroidStudioProjects/GlobalCapsLeagueApp/mobile/src/main/res/drawable/round_top_corners_green.xml" value="0.37864583333333335" />
+        <entry key="..\:/Users/micha/AndroidStudioProjects/GlobalCapsLeagueApp/mobile/src/main/res/drawable/select_background.xml" value="0.37864583333333335" />
         <entry key="..\:/Users/micha/AndroidStudioProjects/GlobalCapsLeagueApp/mobile/src/main/res/drawable/toggle.xml" value="0.29914529914529914" />
         <entry key="..\:/Users/micha/AndroidStudioProjects/GlobalCapsLeagueApp/mobile/src/main/res/drawable/toggle_checked.xml" value="0.29914529914529914" />
         <entry key="..\:/Users/micha/AndroidStudioProjects/GlobalCapsLeagueApp/mobile/src/main/res/drawable/toggle_checked_unchecked.xml" value="0.3106837606837607" />
@@ -27,14 +42,24 @@
         <entry key="..\:/Users/micha/AndroidStudioProjects/GlobalCapsLeagueApp/mobile/src/main/res/drawable/toggle_unchecked_invalid.xml" value="0.1675213675213675" />
         <entry key="..\:/Users/micha/AndroidStudioProjects/GlobalCapsLeagueApp/mobile/src/main/res/layout/activity_add_game.xml" value="0.33" />
         <entry key="..\:/Users/micha/AndroidStudioProjects/GlobalCapsLeagueApp/mobile/src/main/res/layout/activity_login.xml" value="0.33" />
-        <entry key="..\:/Users/micha/AndroidStudioProjects/GlobalCapsLeagueApp/mobile/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/micha/AndroidStudioProjects/GlobalCapsLeagueApp/mobile/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/micha/AndroidStudioProjects/GlobalCapsLeagueApp/mobile/src/main/res/layout/dropdown_item.xml" value="0.29743589743589743" />
-        <entry key="..\:/Users/micha/AndroidStudioProjects/GlobalCapsLeagueApp/mobile/src/main/res/menu/drawer_view.xml" value="0.15427350427350428" />
+        <entry key="..\:/Users/micha/AndroidStudioProjects/GlobalCapsLeagueApp/mobile/src/main/res/layout/fragment_game_layout.xml" value="0.2" />
+        <entry key="..\:/Users/micha/AndroidStudioProjects/GlobalCapsLeagueApp/mobile/src/main/res/layout/fragment_game_rebuttals.xml" value="0.3625" />
+        <entry key="..\:/Users/micha/AndroidStudioProjects/GlobalCapsLeagueApp/mobile/src/main/res/layout/fragment_holder.xml" value="0.20260416666666667" />
+        <entry key="..\:/Users/micha/AndroidStudioProjects/GlobalCapsLeagueApp/mobile/src/main/res/layout/fragment_home.xml" value="0.3625" />
+        <entry key="..\:/Users/micha/AndroidStudioProjects/GlobalCapsLeagueApp/mobile/src/main/res/layout/fragment_winner.xml" value="0.33" />
+        <entry key="..\:/Users/micha/AndroidStudioProjects/GlobalCapsLeagueApp/mobile/src/main/res/layout/game_stats.xml" value="0.5" />
+        <entry key="..\:/Users/micha/AndroidStudioProjects/GlobalCapsLeagueApp/mobile/src/main/res/layout/nav_header_main.xml" value="0.5" />
+        <entry key="..\:/Users/micha/AndroidStudioProjects/GlobalCapsLeagueApp/mobile/src/main/res/layout/rebuttals_stats.xml" value="0.33" />
+        <entry key="..\:/Users/micha/AndroidStudioProjects/GlobalCapsLeagueApp/mobile/src/main/res/layout/toolbar.xml" value="0.3625" />
+        <entry key="..\:/Users/micha/AndroidStudioProjects/GlobalCapsLeagueApp/mobile/src/main/res/menu/drawer_view.xml" value="0.33" />
         <entry key="..\:/Users/micha/AndroidStudioProjects/GlobalCapsLeagueApp/mobile/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1675213675213675" />
         <entry key="..\:/Users/micha/AndroidStudioProjects/GlobalCapsLeagueApp/mobile/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1675213675213675" />
         <entry key="..\:/Users/micha/AndroidStudioProjects/GlobalCapsLeagueApp/mobile/src/main/res/xml/network_security_config.xml" value="0.12478632478632479" />
         <entry key="..\:/Users/micha/AndroidStudioProjects/GlobalCapsLeagueApp/wear/src/main/res/drawable/add.xml" value="0.1675213675213675" />
         <entry key="..\:/Users/micha/AndroidStudioProjects/GlobalCapsLeagueApp/wear/src/main/res/drawable/arrow.xml" value="0.1675213675213675" />
+        <entry key="..\:/Users/micha/AndroidStudioProjects/GlobalCapsLeagueApp/wear/src/main/res/drawable/doubles.xml" value="0.21875" />
         <entry key="..\:/Users/micha/AndroidStudioProjects/GlobalCapsLeagueApp/wear/src/main/res/drawable/half_circle.xml" value="0.75" />
         <entry key="..\:/Users/micha/AndroidStudioProjects/GlobalCapsLeagueApp/wear/src/main/res/drawable/home.xml" value="0.8916666666666667" />
         <entry key="..\:/Users/micha/AndroidStudioProjects/GlobalCapsLeagueApp/wear/src/main/res/drawable/low_rounded_shape.xml" value="0.875" />
@@ -44,9 +69,9 @@
         <entry key="..\:/Users/micha/AndroidStudioProjects/GlobalCapsLeagueApp/wear/src/main/res/layout/activity_game.xml" value="0.8055555555555556" />
         <entry key="..\:/Users/micha/AndroidStudioProjects/GlobalCapsLeagueApp/wear/src/main/res/layout/activity_main.xml" value="0.9" />
         <entry key="..\:/Users/micha/AndroidStudioProjects/GlobalCapsLeagueApp/wear/src/main/res/layout/activity_news.xml" value="0.5412844036697247" />
-        <entry key="..\:/Users/micha/AndroidStudioProjects/GlobalCapsLeagueApp/wear/src/main/res/layout/activity_save_game.xml" value="1.0416666666666667" />
+        <entry key="..\:/Users/micha/AndroidStudioProjects/GlobalCapsLeagueApp/wear/src/main/res/layout/activity_save_game.xml" value="0.22" />
         <entry key="..\:/Users/micha/AndroidStudioProjects/GlobalCapsLeagueApp/wear/src/main/res/layout/fragment_game_rebuttals.xml" value="1.1380208333333333" />
-        <entry key="..\:/Users/micha/AndroidStudioProjects/GlobalCapsLeagueApp/wear/src/main/res/layout/fragment_game_winner.xml" value="1.1380208333333333" />
+        <entry key="..\:/Users/micha/AndroidStudioProjects/GlobalCapsLeagueApp/wear/src/main/res/layout/fragment_game_winner.xml" value="0.25" />
         <entry key="..\:/Users/micha/AndroidStudioProjects/GlobalCapsLeagueApp/wear/src/main/res/layout/game.xml" value="0.830945558739255" />
         <entry key="..\:/Users/micha/AndroidStudioProjects/GlobalCapsLeagueApp/wear/src/main/res/layout/list_button.xml" value="1.0" />
         <entry key="..\:/Users/micha/AndroidStudioProjects/GlobalCapsLeagueApp/wear/src/main/res/layout/list_element.xml" value="1.1" />
