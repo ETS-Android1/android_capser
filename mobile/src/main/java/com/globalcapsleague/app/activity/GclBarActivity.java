@@ -20,6 +20,8 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
 import com.example.globalcapsleagueapp.R;
+import com.globalcapsleague.app.fragments.HomeFragment;
+import com.globalcapsleague.app.fragments.PostGameFragment;
 import com.globalcapsleague.app.utils.Security;
 import com.google.android.material.navigation.NavigationView;
 
@@ -43,11 +45,11 @@ public class GclBarActivity extends AppCompatActivity {
     }
 
 
-    public void populateNameAndEmail(){
+    public void populateNameAndEmail() {
         SharedPreferences usernamePreferences = getSharedPreferences(getResources().getString(R.string.username), Context.MODE_PRIVATE);
         SharedPreferences emailPreferences = getSharedPreferences(getResources().getString(R.string.email), Context.MODE_PRIVATE);
 
-        if(usernamePreferences!=null && emailPreferences!=null) {
+        if (usernamePreferences != null && emailPreferences != null) {
             ((TextView) navigationView.getHeaderView(0).findViewById(R.id.header_name)).setText(usernamePreferences.getString(getResources().getString(R.string.username), ""));
             ((TextView) navigationView.getHeaderView(0).findViewById(R.id.header_email)).setText(emailPreferences.getString(getResources().getString(R.string.email), ""));
         }
@@ -76,23 +78,27 @@ public class GclBarActivity extends AppCompatActivity {
 
         navigationView.setNavigationItemSelectedListener(l -> {
             int id = l.getItemId();
-            if (id == R.id.nav_logout) {
-                logout();
-            } else if(id == R.id.nav_play_game){
-                Intent intent = new Intent(this,LiveGameActivity.class);
-                startActivity(intent);
-            } else if(id == R.id.nav_home){
-                if(this instanceof LiveGameActivity){
-                    Intent intent = new Intent(this,MainActivity.class);
-                    startActivity(intent);
-                } else{
-                    // #TODO fragment
-                }
-            }
+            navigate(id);
+
             return true;
         });
     }
 
+
+    public void navigate(int id){
+        if (id == R.id.nav_logout) {
+            logout();
+        } else if (id == R.id.nav_play_game) {
+            setFragment(LiveGameFragment.class);
+        } else if (id == R.id.nav_add_game) {
+            setFragment(PostGameFragment.class);
+        } else if (id == R.id.nav_home) {
+            setFragment(HomeFragment.class);
+        }
+        navigationView.setCheckedItem(id);
+
+        drawerLayout.closeDrawer(GravityCompat.START);
+    }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
@@ -116,7 +122,7 @@ public class GclBarActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        if(drawerLayout==null){
+        if (drawerLayout == null) {
             super.onBackPressed();
             return;
         }
@@ -127,14 +133,14 @@ public class GclBarActivity extends AppCompatActivity {
         }
     }
 
-    public void setFragment(Class<? extends Fragment> fragment){
+    public void setFragment(Class<? extends Fragment> fragment) {
         getSupportFragmentManager().beginTransaction().setReorderingAllowed(true)
-                .replace(R.id.fragment_container,fragment,null).commit();
+                .replace(R.id.fragment_container, fragment, null).commit();
     }
 
-    public void setFragment(Class<? extends Fragment> fragment, int animationIn, int animationOut){
+    public void setFragment(Class<? extends Fragment> fragment, int animationIn, int animationOut) {
         getSupportFragmentManager().beginTransaction().setReorderingAllowed(true)
-                .setCustomAnimations(animationIn,animationOut)
-                .replace(R.id.fragment_container,fragment,null).commit();
+                .setCustomAnimations(animationIn, animationOut)
+                .replace(R.id.fragment_container, fragment, null).commit();
     }
 }

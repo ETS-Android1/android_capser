@@ -1,4 +1,4 @@
-package com.globalcapsleague.app.fragments;
+package com.globalcapsleague.app.fragments.game;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -12,8 +12,8 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.globalcapsleagueapp.R;
-import com.globalcapsleague.app.activity.AddGameActivity;
-import com.globalcapsleague.app.activity.LiveGameActivity;
+import com.globalcapsleague.app.activity.LiveGameFragment;
+import com.globalcapsleague.app.activity.MainActivity;
 import com.globalcapsleague.app.models.Game;
 import com.google.gson.Gson;
 
@@ -22,10 +22,15 @@ public class WinnerFragment extends Fragment {
     private TextView winnerText;
     private TextView winnerSubtext;
     private boolean player1Won;
-    private LiveGameActivity liveGameActivity;
+    private MainActivity mainActivity;
+    private LiveGameFragment liveGameFragment;
 
-    public void setLiveGameActivity(LiveGameActivity liveGameActivity) {
-        this.liveGameActivity = liveGameActivity;
+    public void setMainActivity(MainActivity mainActivity) {
+        this.mainActivity = mainActivity;
+    }
+
+    public void setLiveGameFragment(LiveGameFragment liveGameFragment) {
+        this.liveGameFragment = liveGameFragment;
     }
 
     public WinnerFragment(){
@@ -52,16 +57,17 @@ public class WinnerFragment extends Fragment {
             public void run() {
 
                 Game game = new Game();
-                game.setPlayerPoints(liveGameActivity.player1Points);
-                game.setOpponentPoints(liveGameActivity.player2Points);
-                game.setPlayerSinks(liveGameActivity.player1Sinks);
-                game.setOpponentSinks(liveGameActivity.player2Sinks);
+                game.setPlayerPoints(liveGameFragment.player1Points);
+                game.setOpponentPoints(liveGameFragment.player2Points);
+                game.setPlayerSinks(liveGameFragment.player1Sinks);
+                game.setOpponentSinks(liveGameFragment.player2Sinks);
 
 
-                Intent intent = new Intent(getContext(), AddGameActivity.class);
+                Intent intent = new Intent(getContext(), MainActivity.class);
+                intent.putExtra("fragment","postGame");
                 intent.putExtra("game",new Gson().toJson(game));
-                startActivity(intent);
-                liveGameActivity.finish();
+                mainActivity.setIntent(intent);
+                mainActivity.navigate(R.id.nav_add_game);
             }
         },3000);
     }

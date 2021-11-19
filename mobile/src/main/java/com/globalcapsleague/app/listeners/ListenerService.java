@@ -14,6 +14,7 @@ public class ListenerService extends WearableListenerService {
     public void onMessageReceived(MessageEvent messageEvent) {
         Intent startIntent = new Intent(getApplicationContext(), MainActivity.class);
         startIntent.putExtra("gameSpecs",new String(messageEvent.getData()));
+        startIntent.putExtra("fragment","postGame");
         startIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startIntent.addCategory(new String(messageEvent.getData()));
 

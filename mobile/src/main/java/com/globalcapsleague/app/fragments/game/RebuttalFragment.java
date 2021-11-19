@@ -1,4 +1,4 @@
-package com.globalcapsleague.app.fragments;
+package com.globalcapsleague.app.fragments.game;
 
 
 import android.content.Context;
@@ -9,11 +9,11 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
-import com.globalcapsleague.app.activity.LiveGameActivity;
+import com.globalcapsleague.app.activity.LiveGameFragment;
 import com.example.globalcapsleagueapp.R;
+import com.globalcapsleague.app.fragments.game.WinnerFragment;
 import com.globalcapsleague.app.views.RotatableView;
 
 public class RebuttalFragment extends Fragment {
@@ -23,7 +23,7 @@ public class RebuttalFragment extends Fragment {
     private ConstraintLayout playerCardDummy;
     private ConstraintLayout opponentCardDummy;
     private Context context;
-    private LiveGameActivity mainActivity;
+    private LiveGameFragment liveGameFragment;
 
     private int opponentRebuttalsStreak;
     private int playerRebuttalsStreak;
@@ -40,14 +40,12 @@ public class RebuttalFragment extends Fragment {
     TextView playerSinksDummy;
 
 
-    public void setMainActivity(LiveGameActivity mainActivity) {
-        this.mainActivity = mainActivity;
+    public void setLiveGameFragment(LiveGameFragment liveGameFragment) {
+        this.liveGameFragment = liveGameFragment;
+        context = liveGameFragment.getActivity().getApplicationContext();
     }
 
 
-    public void setContext(Context context) {
-        this.context = context;
-    }
 
     public RebuttalFragment() {
         super(R.layout.fragment_game_rebuttals);
@@ -64,38 +62,38 @@ public class RebuttalFragment extends Fragment {
 
         opponentCard.setOnClickListener(l -> {
 
-            if (mainActivity.player1Turn) {
-                mainActivity.player2Points += 1;
-                mainActivity.player1Turn = false;
+            if (liveGameFragment.player1Turn) {
+                liveGameFragment.player2Points += 1;
+                liveGameFragment.player1Turn = false;
 
                 playerRebuttalsStreakViewDummy.setText(String.valueOf(playerRebuttalsStreak));
-                playerSinksDummy.setText(String.valueOf(mainActivity.player1Sinks));
+                playerSinksDummy.setText(String.valueOf(liveGameFragment.player1Sinks));
 
                 setCardColors();
                 playerCard.animateReverse(() -> {
-                    mainActivity.hideRebuttalsScreen();
-                    if(mainActivity.player2Points==11){
-                        mainActivity.setFragment(WinnerFragment.class,android.R.anim.fade_in, android.R.anim.fade_out);
+                    liveGameFragment.hideRebuttalsScreen();
+                    if(liveGameFragment.player2Points==11){
+                        liveGameFragment.setFragment(WinnerFragment.class,android.R.anim.fade_in, android.R.anim.fade_out);
                     }
                 });
                 return;
             }
-            mainActivity.player2Sinks += 1;
-            mainActivity.player2Rebuttals += 1;
+            liveGameFragment.player2Sinks += 1;
+            liveGameFragment.player2Rebuttals += 1;
             opponentRebuttalsStreak += 1;
-            mainActivity.player1Turn = true;
+            liveGameFragment.player1Turn = true;
 
             opponentRebuttalsStreakView.setText(String.valueOf(opponentRebuttalsStreak));
             opponentRebuttalsStreakViewDummy.setText(String.valueOf(opponentRebuttalsStreak + 1));
             playerRebuttalsStreakViewDummy.setText(String.valueOf(playerRebuttalsStreak));
 
-            opponentSinks.setText(String.valueOf(mainActivity.player2Sinks));
-            opponentSinksDummy.setText(String.valueOf(mainActivity.player2Sinks + 1));
-            playerSinksDummy.setText(String.valueOf(mainActivity.player1Sinks));
+            opponentSinks.setText(String.valueOf(liveGameFragment.player2Sinks));
+            opponentSinksDummy.setText(String.valueOf(liveGameFragment.player2Sinks + 1));
+            playerSinksDummy.setText(String.valueOf(liveGameFragment.player1Sinks));
             setCardColors();
 
             playerCard.animateReverse(() -> {
-                playerSinksDummy.setText(String.valueOf(mainActivity.player1Sinks + 1));
+                playerSinksDummy.setText(String.valueOf(liveGameFragment.player1Sinks + 1));
                 playerRebuttalsStreakViewDummy.setText(String.valueOf(playerRebuttalsStreak + 1));
 //                mainActivity.displayRebuttalsScreen();
             });
@@ -103,40 +101,39 @@ public class RebuttalFragment extends Fragment {
 
         playerCard.setOnClickListener(l -> {
 
-            if (!mainActivity.player1Turn) {
-                mainActivity.player1Points += 1;
-                mainActivity.player1Turn = true;
+            if (!liveGameFragment.player1Turn) {
+                liveGameFragment.player1Points += 1;
+                liveGameFragment.player1Turn = true;
 
                 opponentRebuttalsStreakViewDummy.setText(String.valueOf(opponentRebuttalsStreak));
-                opponentSinksDummy.setText(String.valueOf(mainActivity.player2Sinks));
+                opponentSinksDummy.setText(String.valueOf(liveGameFragment.player2Sinks));
 
                 setCardColors();
                 opponentCard.animateReverse(() -> {
-                    mainActivity.hideRebuttalsScreen();
-                    if(mainActivity.player1Points==11){
-                        mainActivity.setFragment(WinnerFragment.class,android.R.anim.fade_in, android.R.anim.fade_out);
+                    liveGameFragment.hideRebuttalsScreen();
+                    if(liveGameFragment.player1Points==11){
+                        liveGameFragment.setFragment(WinnerFragment.class,android.R.anim.fade_in, android.R.anim.fade_out);
                     }
                 });
                 return;
             }
-            mainActivity.player1Sinks += 1;
-            mainActivity.player1Rebuttals += 1;
+            liveGameFragment.player1Sinks += 1;
+            liveGameFragment.player1Rebuttals += 1;
             playerRebuttalsStreak += 1;
-            mainActivity.player1Turn = false;
+            liveGameFragment.player1Turn = false;
 
             playerRebuttalsStreakView.setText(String.valueOf(playerRebuttalsStreak));
             playerRebuttalsStreakViewDummy.setText(String.valueOf(playerRebuttalsStreak + 1));
             opponentRebuttalsStreakViewDummy.setText(String.valueOf(opponentRebuttalsStreak));
 
-            playerSinks.setText(String.valueOf(mainActivity.player1Sinks));
-            playerSinksDummy.setText(String.valueOf(mainActivity.player1Sinks + 1));
-            opponentSinksDummy.setText(String.valueOf(mainActivity.player2Sinks));
+            playerSinks.setText(String.valueOf(liveGameFragment.player1Sinks));
+            playerSinksDummy.setText(String.valueOf(liveGameFragment.player1Sinks + 1));
+            opponentSinksDummy.setText(String.valueOf(liveGameFragment.player2Sinks));
             setCardColors();
 
             opponentCard.animateReverse(() -> {
-                opponentSinksDummy.setText(String.valueOf(mainActivity.player2Sinks + 1));
+                opponentSinksDummy.setText(String.valueOf(liveGameFragment.player2Sinks + 1));
                 opponentRebuttalsStreakViewDummy.setText(String.valueOf(opponentRebuttalsStreak + 1));
-//                mainActivity.displayRebuttalsScreen();
             });
 
         });
@@ -164,10 +161,10 @@ public class RebuttalFragment extends Fragment {
     }
 
     public void updateSinks() {
-        updateText(playerSinks, mainActivity.player1Sinks);
-        updateText(playerSinksDummy, mainActivity.player1Sinks + 1);
-        updateText(opponentSinks, mainActivity.player2Sinks);
-        updateText(opponentSinksDummy, mainActivity.player2Sinks + 1);
+        updateText(playerSinks, liveGameFragment.player1Sinks);
+        updateText(playerSinksDummy, liveGameFragment.player1Sinks + 1);
+        updateText(opponentSinks, liveGameFragment.player2Sinks);
+        updateText(opponentSinksDummy, liveGameFragment.player2Sinks + 1);
         updateText(opponentRebuttalsStreakViewDummy, 1);
         updateText(playerRebuttalsStreakViewDummy, 1);
 
@@ -186,14 +183,14 @@ public class RebuttalFragment extends Fragment {
     }
 
     private void setCardColors() {
-        if (mainActivity.player1Turn) {
+        if (liveGameFragment.player1Turn) {
             playerCard.setBackgroundResource(R.drawable.round_top_corners_green);
             opponentCard.setBackgroundResource( R.drawable.round_bottom_corners);
             playerCardDummy.setBackgroundResource(R.drawable.round_top_corners);
             opponentCardDummy.setBackgroundResource(R.drawable.round_bottom_corners_green);
 
             opponentRebuttalsStreakViewDummy.setText(String.valueOf(opponentRebuttalsStreak));
-            opponentSinksDummy.setText(String.valueOf(mainActivity.player2Sinks));
+            opponentSinksDummy.setText(String.valueOf(liveGameFragment.player2Sinks));
 
         } else {
             playerCard.setBackgroundResource(R.drawable.round_top_corners);
@@ -202,7 +199,7 @@ public class RebuttalFragment extends Fragment {
             opponentCardDummy.setBackgroundResource( R.drawable.round_bottom_corners);
 
             playerRebuttalsStreakViewDummy.setText(String.valueOf(playerRebuttalsStreak));
-            playerSinksDummy.setText(String.valueOf(mainActivity.player1Sinks));
+            playerSinksDummy.setText(String.valueOf(liveGameFragment.player1Sinks));
         }
     }
 }
