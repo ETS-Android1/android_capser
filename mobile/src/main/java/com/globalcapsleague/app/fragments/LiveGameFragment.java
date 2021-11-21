@@ -1,4 +1,4 @@
-package com.globalcapsleague.app.activity;
+package com.globalcapsleague.app.fragments;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -10,6 +10,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.globalcapsleagueapp.R;
+import com.globalcapsleague.app.activity.MainActivity;
 import com.globalcapsleague.app.fragments.game.RebuttalFragment;
 import com.globalcapsleague.app.fragments.game.GameFragment;
 import com.globalcapsleague.app.fragments.game.WinnerFragment;

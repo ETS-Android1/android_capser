@@ -32,6 +32,7 @@ import com.android.volley.toolbox.Volley;
 import com.example.globalcapsleagueapp.R;
 import com.globalcapsleague.app.activity.MainActivity;
 import com.globalcapsleague.app.adapters.SelectOpponentAdapter;
+import com.globalcapsleague.app.data.Fetch;
 import com.globalcapsleague.app.enums.GameMode;
 import com.globalcapsleague.app.models.Game;
 import com.globalcapsleague.app.models.GameDto;
@@ -53,14 +54,10 @@ import java.util.Map;
 
 public class PostGameFragment extends Fragment {
 
-    private String searchPlayerUrl;
-    private String addGameUrl;
 
     private final List<OpponentObject> currentlyFetchedPlayers = new ArrayList<>();
     private String accessToken;
-    private RequestQueue requestQueue;
-    private StringRequest gameRequest;
-    private RefreshHandler refreshHandler;
+    private String username;
 
     private String opponentId = null;
 
@@ -78,18 +75,19 @@ public class PostGameFragment extends Fragment {
 
     private MainActivity mainActivity;
 
-    public PostGameFragment(){
+    private Fetch fetch;
+
+    public PostGameFragment() {
         super(R.layout.activity_add_game);
     }
 
     public void setMainActivity(MainActivity mainActivity) {
         this.mainActivity = mainActivity;
+        fetch = new Fetch(mainActivity);
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        searchPlayerUrl = getResources().getString(R.string.server_url) + "/api/users/search?pageSize=5&pageNumber=0&username=";
-        addGameUrl = getResources().getString(R.string.server_url) + "/api/easy";
 
         initializeFields(view);
         extractGameFromIntent();
@@ -104,15 +102,14 @@ public class PostGameFragment extends Fragment {
         super.onDestroyView();
     }
 
-    public void resetFields(){
+    public void resetFields() {
         playerPoints.setSelection(0);
         playerSinks.setSelection(0);
         opponentPoints.setSelection(0);
         opponentSinks.setSelection(0);
         autoCompleteTextView.setText("");
-        opponentId=null;
+        opponentId = null;
     }
-
 
 
     private void populateWithWatchDataIfAvailable() {
@@ -183,7 +180,6 @@ public class PostGameFragment extends Fragment {
 
         autoCompleteTextView.setAdapter(opponentsAdapter);
 
-        requestQueue = Volley.newRequestQueue(mainActivity);
 
         dropdown.setAdapter(gameTypesAdapter);
         playerPoints.setAdapter(pointsAdapter);
@@ -193,12 +189,12 @@ public class PostGameFragment extends Fragment {
         opponentSinks.setAdapter(sinksAdapter);
 
 
-        SharedPreferences accessPreferences = mainActivity.getSharedPreferences(getResources().getString(R.string.access_token), Context.MODE_PRIVATE);
-        accessToken = accessPreferences.getString(getResources().getString(R.string.access_token), null);
-
+        SharedPreferences accessPreferences = mainActivity.getSharedPreferences(mainActivity.getResources().getString(R.string.access_token), Context.MODE_PRIVATE);
+        SharedPreferences usernamePreferences = mainActivity.getSharedPreferences("username", Context.MODE_PRIVATE);
+        accessToken = accessPreferences.getString(mainActivity.getResources().getString(R.string.access_token), null);
+        username = usernamePreferences.getString("username", null);
         String userId = Security.getUserId(accessToken);
 
-        refreshHandler = new RefreshHandler(mainActivity.getApplicationContext());
 
         addGameButton.setOnClickListener(l -> makeGameRequest(userId));
 
@@ -229,7 +225,7 @@ public class PostGameFragment extends Fragment {
                     opponentIdHelper.setText("Select opponent name from the dropdown");
                 }
 
-                StringRequest stringRequest = new StringRequest(Request.Method.GET, searchPlayerUrl + s.toString(), response -> {
+                fetch.fetchUsernames(s.toString(), response -> {
 
                     try {
                         JSONObject jsonObject = new JSONObject(response);
@@ -238,6 +234,9 @@ public class PostGameFragment extends Fragment {
                         List<OpponentObject> newNames = new ArrayList<>();
                         for (int i = 0; i < names.length(); i++) {
                             JSONObject name = names.getJSONObject(i);
+                            if (name.getString("username").equals(username)) {
+                                continue;
+                            }
                             newNames.add(new OpponentObject(name.getString("username"), name.getString("id")));
                         }
                         opponentsAdapter.clear();
@@ -251,14 +250,7 @@ public class PostGameFragment extends Fragment {
                     }
 
 
-                }, new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-
-                    }
                 });
-
-                requestQueue.add(stringRequest);
 
             }
 
@@ -293,7 +285,7 @@ public class PostGameFragment extends Fragment {
 
         gameDto.setGameEventList(new ArrayList<>());
 
-        gameRequest = new StringRequest(Request.Method.POST, addGameUrl, response -> {
+        fetch.postGame(gameDto, response -> {
 
             CharSequence text = "Added game";
             int duration = Toast.LENGTH_SHORT;
@@ -305,10 +297,7 @@ public class PostGameFragment extends Fragment {
             startActivity(intent);
 
         }, error -> {
-            if (error.networkResponse.statusCode == 403 || error.networkResponse.statusCode == 401) {
-                retryGameRequest();
-                return;
-            }
+
 
             try {
                 CharSequence text = new JSONObject(new String(error.networkResponse.data)).getString("error");
@@ -320,35 +309,8 @@ public class PostGameFragment extends Fragment {
                 e.printStackTrace();
             }
 
-        }) {
-
-            @Override
-            public Map<String, String> getHeaders() {
-                Map<String, String> headers = new HashMap<String, String>();
-                headers.put("Authorization", "Bearer " + accessToken);
-                return headers;
-            }
-
-            @Override
-            public byte[] getBody() {
-                Gson gson = new Gson();
-                return gson.toJson(gameDto).getBytes(StandardCharsets.UTF_8);
-            }
-
-            @Override
-            public String getBodyContentType() {
-                return "application/json; charset=utf-8";
-            }
-        };
-
-        requestQueue.add(gameRequest);
-    }
-
-    private void retryGameRequest() {
-        refreshHandler.refreshTokenAndDo((accessToken) -> {
-            this.accessToken = accessToken;
-            requestQueue.add(gameRequest);
         });
-
     }
+
+
 }

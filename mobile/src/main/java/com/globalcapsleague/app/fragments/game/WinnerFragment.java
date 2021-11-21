@@ -12,7 +12,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.globalcapsleagueapp.R;
-import com.globalcapsleague.app.activity.LiveGameFragment;
+import com.globalcapsleague.app.fragments.LiveGameFragment;
 import com.globalcapsleague.app.activity.MainActivity;
 import com.globalcapsleague.app.models.Game;
 import com.google.gson.Gson;

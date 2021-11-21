@@ -19,6 +19,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.globalcapsleagueapp.R;
+import com.globalcapsleague.app.data.StringRequestParse;
 import com.globalcapsleague.app.utils.Security;
 
 import org.json.JSONException;
@@ -47,7 +48,7 @@ public class LoginActivity extends AppCompatActivity {
         loginButton.setOnClickListener(l ->{
             Log.i("Test","Login " + username.getText().toString() + password.getText());
 
-            StringRequest stringRequest = new StringRequest(Request.Method.POST, serverUrl, new Response.Listener<String>() {
+            StringRequestParse stringRequest = new StringRequestParse(Request.Method.POST, serverUrl, new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
                     Log.i("Response",response);
@@ -59,11 +60,15 @@ public class LoginActivity extends AppCompatActivity {
                         SharedPreferences refreshTokenPreferences = getSharedPreferences(getResources().getString(R.string.refresh_token),Context.MODE_PRIVATE);
                         SharedPreferences emailPreferences = getSharedPreferences(getResources().getString(R.string.email),Context.MODE_PRIVATE);
                         SharedPreferences usernamePreferences = getSharedPreferences(getResources().getString(R.string.username),Context.MODE_PRIVATE);
+                        SharedPreferences userIdPreferences = getSharedPreferences("userId",Context.MODE_PRIVATE);
 
                         usernamePreferences.edit().putString(getResources().getString(R.string.username),username.getText().toString()).apply();
                         emailPreferences.edit().putString(getResources().getString(R.string.email), Security.getEmail(jsonObject.getString("authToken"))).apply();
                         accessTokenPreferences.edit().putString(getResources().getString(R.string.access_token),jsonObject.getString("authToken")).commit();
                         refreshTokenPreferences.edit().putString(getResources().getString(R.string.refresh_token),jsonObject.getString("refreshToken")).commit();
+                        userIdPreferences.edit().putString("userId",Security.getUserId(jsonObject.getString("authToken"))).apply();
+
+
 
                         Intent intent = new Intent(getApplicationContext(),MainActivity.class);
                         startActivity(intent);

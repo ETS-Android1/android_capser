@@ -1,15 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:state_activated="true">
-        <shape >
-            <solid android:color="@color/red_200" />
-            <corners android:radius="7.5dp" />
-        </shape>
-    </item>
-    <item android:state_activated="false">
-        <shape >
-            <stroke android:color="@color/red_200"  android:width="2dp"/>
-            <corners android:radius="7.5dp" />
-        </shape>
-    </item>
-</selector>
+<animated-selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_activated="true"
+        android:id="@+id/dot_checked" android:drawable="@drawable/circle_checked"/>
+
+    <item android:state_activated="false"
+        android:id="@+id/dot_unchecked" android:drawable="@drawable/circle_unchecked"/>
+
+
+    <transition
+        android:drawable="@drawable/circle_checked_unchecked"
+        android:fromId="@+id/dot_checked"
+        android:toId="@+id/dot_unchecked"/>
+
+    <transition
+        android:drawable="@drawable/cricle_unchecked_checked"
+        android:fromId="@+id/dot_unchecked"
+        android:toId="@+id/dot_checked"/>
+</animated-selector>

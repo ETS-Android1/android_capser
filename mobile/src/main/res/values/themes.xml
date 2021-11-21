@@ -36,6 +36,11 @@
         <item name="paper">@color/lightPaper</item>
         <item name="colorPrimary">@color/red_700</item>
         <item name="backgroundColor">#FFFFFF</item>
+        <item name="borders">@color/black</item>
     </style>
 
+    <style name="roundedImageViewRounded">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
 </resources>

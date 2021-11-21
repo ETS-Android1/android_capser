@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:theme="@style/CustomAttributes"
     android:layout_width="match_parent"
-    android:layout_height="75dp"
+    android:layout_height="165dp"
     android:gravity="center_vertical"
     android:orientation="vertical">
 
@@ -17,13 +17,42 @@
         android:paddingLeft="16dp"
         android:paddingRight="16dp">
 
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginBottom="10dp">
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/ic_avatarcrop"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/header_avatar"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:src="@drawable/gcl_logo_alpha"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:shapeAppearanceOverlay="@style/roundedImageViewRounded" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
 
         <TextView
             android:id="@+id/header_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingTop="0dp"
-            android:text="Waseef Akhtar"
+            android:text="Test "
             android:textAppearance="@style/TextAppearance.AppCompat.Headline"
             android:textColor="?attr/colorPrimary"
             android:textStyle="bold" />
@@ -32,7 +61,7 @@
             android:id="@+id/header_email"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="waseefakhtar@gmail.com"
+            android:text="test@gmai.com"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
           />
         />

@@ -1,7 +1,10 @@
 package com.globalcapsleague.app.models;
 
+import com.example.globalcapsleagueapp.R;
 import com.globalcapsleague.app.enums.GameMode;
+import com.globalcapsleague.enums.GameType;
 
+import java.util.Date;
 import java.util.List;
 
 public class GameDto {

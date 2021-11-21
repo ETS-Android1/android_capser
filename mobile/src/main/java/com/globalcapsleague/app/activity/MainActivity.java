@@ -7,7 +7,9 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 
 import com.example.globalcapsleagueapp.R;
+import com.globalcapsleague.app.data.Fetch;
 import com.globalcapsleague.app.fragments.HomeFragment;
+import com.globalcapsleague.app.fragments.LiveGameFragment;
 import com.globalcapsleague.app.fragments.PostGameFragment;
 import com.globalcapsleague.app.fragments.tutorial.TutorialMainFragment;
 import com.globalcapsleague.app.models.Game;
@@ -26,9 +28,8 @@ public class MainActivity extends GclBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_holder);
         setupActionBar();
-
-
         extractGameFromPreferences();
+
 
         Intent intent = getIntent();
         if(intent.getStringExtra("fragment")!=null){
@@ -59,6 +60,8 @@ public class MainActivity extends GclBarActivity {
             ((LiveGameFragment) fragment).setMainActivity(this);
         } else if(fragment instanceof TutorialMainFragment){
             ((TutorialMainFragment) fragment).setMainActivity(this);
+        } else if(fragment instanceof HomeFragment){
+            ((HomeFragment) fragment).setMainActivity(this);
         }
 
     }

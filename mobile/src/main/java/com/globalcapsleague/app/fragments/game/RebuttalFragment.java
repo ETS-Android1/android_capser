@@ -11,9 +11,8 @@ import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 
-import com.globalcapsleague.app.activity.LiveGameFragment;
+import com.globalcapsleague.app.fragments.LiveGameFragment;
 import com.example.globalcapsleagueapp.R;
-import com.globalcapsleague.app.fragments.game.WinnerFragment;
 import com.globalcapsleague.app.views.RotatableView;
 
 public class RebuttalFragment extends Fragment {

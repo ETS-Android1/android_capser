@@ -14,6 +14,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.globalcapsleagueapp.R;
+import com.globalcapsleague.app.data.StringRequestParse;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -46,7 +47,7 @@ public class RefreshHandler {
             // never thrown in this case
         }
 
-        StringRequest refreshTokenRequest = new StringRequest(Request.Method.POST, context.getString(R.string.server_url) + "/api/refresh",  new Response.Listener<String>() {
+        StringRequestParse refreshTokenRequest = new StringRequestParse(Request.Method.POST, context.getString(R.string.server_url) + "/api/refresh",  new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 try {

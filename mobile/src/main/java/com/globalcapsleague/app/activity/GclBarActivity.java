@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.style.TypefaceSpan;
+import android.util.Log;
 import android.view.MenuItem;
 import android.widget.TextView;
 
@@ -20,20 +21,45 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
 import com.example.globalcapsleagueapp.R;
+import com.globalcapsleague.app.data.Fetch;
+import com.globalcapsleague.app.data.FetchImage;
 import com.globalcapsleague.app.fragments.HomeFragment;
+import com.globalcapsleague.app.fragments.LiveGameFragment;
 import com.globalcapsleague.app.fragments.PostGameFragment;
+import com.globalcapsleague.app.models.ProfileDto;
 import com.globalcapsleague.app.utils.Security;
+import com.google.android.material.imageview.ShapeableImageView;
 import com.google.android.material.navigation.NavigationView;
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 
 public class GclBarActivity extends AppCompatActivity {
 
     private DrawerLayout drawerLayout;
     protected NavigationView navigationView;
+    protected Fetch fetch;
+
+
+    @Override
+    public void onBackPressed() {
+        if (drawerLayout == null) {
+            super.onBackPressed();
+            return;
+        }
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+            drawerLayout.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+        }
+    }
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        fetch = new Fetch(this);
 
+        fetchProfile();
 
         SharedPreferences refreshPreferences = getSharedPreferences(getResources().getString(R.string.refresh_token), Context.MODE_PRIVATE);
 
@@ -42,6 +68,29 @@ public class GclBarActivity extends AppCompatActivity {
         if (refreshToken == null || Security.tokenExpired(refreshToken)) {
             logout();
         }
+    }
+
+
+    private void fetchProfile(){
+        SharedPreferences usernamePreferences = getSharedPreferences("userId", Context.MODE_PRIVATE);
+        String userId = usernamePreferences.getString("userId",null);
+
+        if(userId ==null){
+            return;
+        }
+        fetch.fetchFullUser(userId,response ->{
+            SharedPreferences profilePreferences = getSharedPreferences("profile",Context.MODE_PRIVATE);
+            profilePreferences.edit().putString("profile",response).apply();
+            ProfileDto profileDto = new Gson().fromJson(response,ProfileDto.class);
+            Log.i("Image hash",profileDto.getAvatarHash());
+
+            new Thread(new FetchImage(profileDto.getAvatarHash(),result -> {
+                runOnUiThread(() -> ((ShapeableImageView) navigationView.getHeaderView(0).findViewById(R.id.header_avatar)).setImageBitmap(result));
+            })).start();
+
+        }, error ->{
+
+        });
     }
 
 
@@ -120,18 +169,6 @@ public class GclBarActivity extends AppCompatActivity {
         finish();
     }
 
-    @Override
-    public void onBackPressed() {
-        if (drawerLayout == null) {
-            super.onBackPressed();
-            return;
-        }
-        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
-            drawerLayout.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
-        }
-    }
 
     public void setFragment(Class<? extends Fragment> fragment) {
         getSupportFragmentManager().beginTransaction().setReorderingAllowed(true)
