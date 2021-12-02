@@ -3,5 +3,6 @@
     <attr name="paper" format="color"/>
     <attr name="backgroundColor" format="color"/>
     <attr name="borders" format="color"/>
+    <attr name="myContrast" format="color"/>
 
 </resources>

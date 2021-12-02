@@ -112,6 +112,9 @@ public class Fetch {
             success.run(response);
 
         }, error -> {
+            if(error.networkResponse==null){
+                return;
+            }
             if (error.networkResponse.statusCode == 403 || error.networkResponse.statusCode == 401) {
                 retryFetchUserRequest();
             } else {

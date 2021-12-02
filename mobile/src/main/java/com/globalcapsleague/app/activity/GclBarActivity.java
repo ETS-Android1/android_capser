@@ -82,7 +82,6 @@ public class GclBarActivity extends AppCompatActivity {
             SharedPreferences profilePreferences = getSharedPreferences("profile",Context.MODE_PRIVATE);
             profilePreferences.edit().putString("profile",response).apply();
             ProfileDto profileDto = new Gson().fromJson(response,ProfileDto.class);
-            Log.i("Image hash",profileDto.getAvatarHash());
 
             new Thread(new FetchImage(profileDto.getAvatarHash(),result -> {
                 runOnUiThread(() -> ((ShapeableImageView) navigationView.getHeaderView(0).findViewById(R.id.header_avatar)).setImageBitmap(result));

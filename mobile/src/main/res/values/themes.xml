@@ -37,6 +37,7 @@
         <item name="colorPrimary">@color/red_700</item>
         <item name="backgroundColor">#FFFFFF</item>
         <item name="borders">@color/black</item>
+        <item name="myContrast">@color/black</item>
     </style>
 
     <style name="roundedImageViewRounded">
