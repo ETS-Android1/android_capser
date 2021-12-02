@@ -20,15 +20,15 @@
             android:title="Add Game" />
 
         <item
-            android:id="@+id/nav_homes"
+            android:id="@+id/nav_easy_caps"
             android:icon="@drawable/easy_caps"
             android:title="Easy Caps" />
         <item
-            android:id="@+id/nav_gallery"
+            android:id="@+id/nav_singles"
             android:icon="@drawable/singles"
             android:title="Singles" />
         <item
-            android:id="@+id/nav_slideshow"
+            android:id="@+id/nav_doubles"
             android:icon="@drawable/doubles"
             android:title="Doubles" />
 

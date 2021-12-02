@@ -19,8 +19,10 @@ import com.android.volley.toolbox.Volley;
 import com.example.globalcapsleagueapp.R;
 import com.globalcapsleague.app.activity.MainActivity;
 import com.globalcapsleague.app.models.GameDto;
+import com.globalcapsleague.app.models.GameFromApiDto;
 import com.globalcapsleague.app.models.OpponentObject;
 import com.globalcapsleague.app.utils.RefreshHandler;
+import com.globalcapsleague.enums.GameType;
 import com.google.gson.Gson;
 
 import org.json.JSONArray;
@@ -38,6 +40,7 @@ public class Fetch {
 
     private final String searchPlayerUrl;
     private String dashboardGamesUrl;
+    private String serverUrl;
     private final String addGameUrl;
     private final String fullUserUrl;
     private String accessToken;
@@ -53,6 +56,7 @@ public class Fetch {
         addGameUrl = context.getResources().getString(R.string.server_url) + "/api/easy";
         fullUserUrl = context.getResources().getString(R.string.server_url) + "/api/users/${user}/full";
         dashboardGamesUrl = context.getResources().getString(R.string.server_url) + "/api/dashboard/games";
+        serverUrl = context.getResources().getString(R.string.server_url);
         SharedPreferences accessPreferences = context.getSharedPreferences(context.getResources().getString(R.string.access_token), Context.MODE_PRIVATE);
         accessToken = accessPreferences.getString(context.getResources().getString(R.string.access_token), null);
 
@@ -136,6 +140,16 @@ public class Fetch {
 
     public void fetchDashboardGames(FetchInterface success){
         StringRequestParse stringRequest = new StringRequestParse(Request.Method.GET, dashboardGamesUrl, response -> {
+            success.run(response);
+
+        }, error -> {
+
+        });
+        requestQueue.add(stringRequest);
+    }
+
+    public void fetchGamesOfType(GameType gameType, FetchInterface success){
+        StringRequestParse stringRequest = new StringRequestParse(Request.Method.GET, serverUrl+"/" + GameFromApiDto.getGameApiString(gameType), response -> {
             success.run(response);
 
         }, error -> {

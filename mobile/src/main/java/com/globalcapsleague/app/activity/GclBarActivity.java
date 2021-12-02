@@ -26,6 +26,7 @@ import com.globalcapsleague.app.data.FetchImage;
 import com.globalcapsleague.app.fragments.HomeFragment;
 import com.globalcapsleague.app.fragments.LiveGameFragment;
 import com.globalcapsleague.app.fragments.PostGameFragment;
+import com.globalcapsleague.app.fragments.game.GameListFragment;
 import com.globalcapsleague.app.models.ProfileDto;
 import com.globalcapsleague.app.utils.Security;
 import com.google.android.material.imageview.ShapeableImageView;
@@ -142,6 +143,8 @@ public class GclBarActivity extends AppCompatActivity {
             setFragment(PostGameFragment.class);
         } else if (id == R.id.nav_home) {
             setFragment(HomeFragment.class);
+        } else if (id == R.id.nav_easy_caps){
+            setFragment(GameListFragment.class);
         }
         navigationView.setCheckedItem(id);
 

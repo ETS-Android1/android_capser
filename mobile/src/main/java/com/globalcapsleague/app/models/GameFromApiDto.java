@@ -64,4 +64,18 @@ public class GameFromApiDto {
         }
         return "";
     }
+
+    public static String getGameApiString(GameType gameType){
+        switch (gameType){
+            case DOUBLES:
+                return "doubles";
+            case SINGLES:
+                return "singles";
+            case UNRANKED:
+                return "unranked";
+            case EASY_CAPS:
+                return "easy_caps";
+        }
+        return "";
+    }
 }
